@@ -1,0 +1,119 @@
+:root {
+    --primary: #00d2ff;
+    --secondary: #3a7bd5;
+    --bg: #050505;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Animated background glow */
+.blob-1, .blob-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.blob-1 { top: -10%; left: -10%; animation: float 15s infinite alternate; }
+.blob-2 { bottom: -10%; right: -10%; animation: float 15s infinite alternate-reverse; }
+
+@keyframes float {
+    from { transform: translate(0, 0); }
+    to { transform: translate(100px, 50px); }
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4rem 2rem;
+    border-radius: 32px;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 12px;
+    margin: 0;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    opacity: 0.6;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.search-container {
+    margin-top: 3rem;
+    position: relative;
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1.2rem;
+    border-radius: 16px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--primary);
+    background: rgba(255,255,255,0.08);
+}
+
+button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+}
+
+.status-bar {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    opacity: 0.4;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00ff88;
+    border-radius: 50%;
+    margin-right: 5px;
+}
