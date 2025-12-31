@@ -17,7 +17,6 @@ body {
     overflow: hidden;
 }
 
-/* Animated background glow */
 .blob-1, .blob-2 {
     position: absolute;
     width: 500px;
@@ -36,12 +35,13 @@ body {
 }
 
 .glass-card {
+    position: relative; /* Fixed to keep gear icon in place */
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 4rem 2rem;
     border-radius: 32px;
-    width: 100%;
+    width: 90%;
     max-width: 550px;
     text-align: center;
     box-shadow: 0 40px 100px rgba(0,0,0,0.8);
