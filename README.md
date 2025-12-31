@@ -1,2 +1,4 @@
 # Aether
-At last you have a unblocker that looks not look like as if it was a virus! 💀We’ve all been there — the dead-end of a blocked page while everyone else is just vibing. Aether is the mother of all cheat codes. It’s got that premium glass design, it’s fast as hell, and it really works on everything. 
+Aether is a website that guarantees that your searches and information will be private. There will be ads, but they will not be personalized. Wether it is at school or home you can assure that it has cloaking and undercover.
+
+The website is in BETA so expect bugs and glitches.
