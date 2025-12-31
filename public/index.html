@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aether | Escape the Ordinary</title>
-    
     <script src="https://pl28374190.effectivegatecpm.com/fb/52/20/fb5220aa6f237891a41badef0dd08ee5.js"></script>
-
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
@@ -16,46 +14,36 @@
     
     <div class="glass-card">
         <div id="settings-toggle" class="gear-icon">⚙️</div>
-
         <h1 class="logo">AETHER</h1>
         <p class="tagline">123129323694361742612% Human. 0% Restrictions.</p>
         
         <form id="proxy-form">
             <div class="search-container">
-                <input type="text" id="url-input" placeholder="Enter a URL or search freely..." autocomplete="off">
+                <input type="text" id="url-input" placeholder="Enter URL or Search..." autocomplete="off">
                 <button type="submit">Go</button>
             </div>
         </form>
 
+        <div style="margin-top: 20px;">
+            <a href="/games.html" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: bold;">🎮 Open Game Arcade</a>
+        </div>
+
         <div id="settings-menu" class="settings-menu">
-            <h3>Stealth & Utility</h3>
-            
+            <h3>Stealth Settings</h3>
             <div class="setting-item">
                 <span>Tab Cloak</span>
                 <select id="cloak-select" onchange="cloakTab(this.value)">
-                    <option value="default">None (Aether)</option>
+                    <option value="default">Aether</option>
                     <option value="drive">Google Drive</option>
                     <option value="classroom">Classes</option>
-                    <option value="canvas">Canvas</option>
                 </select>
             </div>
-
-            <div class="setting-item">
-                <span>Auto Ad-Skip (YT)</span>
-                <input type="checkbox" id="adblock-toggle">
-            </div>
-
-            <button id="ab-btn" class="utility-btn">Launch About:Blank Mode</button>
-            <button onclick="selfDestruct()" class="utility-btn panic">Emergency Wipe</button>
-            
-            <p class="info-text">Press <b>ESC</b> at any time to quick-panic.</p>
+            <button id="ab-btn" class="utility-btn">About:Blank Mode</button>
+            <button onclick="localStorage.clear(); location.reload();" class="utility-btn panic">Reset System</button>
         </div>
 
-        <div class="status-bar">
-            <span class="dot"></span> System Operational
-        </div>
+        <div class="status-bar"><span class="dot"></span> System Operational</div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
