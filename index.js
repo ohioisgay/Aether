@@ -5,11 +5,12 @@ const app = express();
 
 const port = process.env.PORT || 8080;
 
+// Initialize Unblocker with the correct prefix
 const unblocker = new Unblocker({
-    prefix: '/proxy/',
-    requestMiddleware: []
+    prefix: '/proxy/'
 });
 
+// IMPORTANT: The unblocker middleware must come before express.static
 app.use(unblocker);
 
 app.use(express.static(path.join(__dirname, 'public')));
