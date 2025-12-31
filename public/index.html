@@ -12,7 +12,7 @@
     <div class="blob-2"></div>
     
     <div class="glass-card">
-        <div id="settings-toggle" style="position: absolute; top: 20px; right: 20px; cursor: pointer; opacity: 0.5; font-size: 1.2rem;">⚙️</div>
+        <div id="settings-toggle" class="gear-icon">⚙️</div>
 
         <h1 class="logo">AETHER</h1>
         <p class="tagline">123129323694361742612% Human. 0% Restrictions.</p>
@@ -24,10 +24,28 @@
             </div>
         </form>
 
-        <div id="settings-menu" style="display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-            <h3 style="margin-bottom: 15px; font-size: 1rem;">Stealth Settings</h3>
-            <button id="ab-btn" style="background: var(--primary); color: white; width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 12px;">Launch About:Blank</button>
-            <p style="font-size: 0.7rem; opacity: 0.6;">(Hides the site from your browser history)</p>
+        <div id="settings-menu" class="settings-menu">
+            <h3>Stealth & Utility</h3>
+            
+            <div class="setting-item">
+                <span>Tab Cloak</span>
+                <select id="cloak-select" onchange="cloakTab(this.value)">
+                    <option value="default">None (Aether)</option>
+                    <option value="drive">Google Drive</option>
+                    <option value="classroom">Classes</option>
+                    <option value="canvas">Canvas</option>
+                </select>
+            </div>
+
+            <div class="setting-item">
+                <span>Auto Ad-Skip (YT)</span>
+                <input type="checkbox" id="adblock-toggle">
+            </div>
+
+            <button id="ab-btn" class="utility-btn">Launch About:Blank Mode</button>
+            <button onclick="selfDestruct()" class="utility-btn panic">Emergency Wipe</button>
+            
+            <p class="info-text">Press <b>ESC</b> at any time to quick-panic.</p>
         </div>
 
         <div class="status-bar">
