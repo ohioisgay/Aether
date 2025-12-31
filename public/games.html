@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether | Arcade</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        .arcade-container {
+            max-width: 900px;
+            width: 95%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            text-align: left;
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .game-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            margin: 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Emulator Overlay */
+        #emu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            z-index: 9999;
+        }
+
+        .emu-controls {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .exit-btn {
+            background: var(--panic);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+
+    <div class="glass-card arcade-container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="color: white; text-decoration: none; opacity: 0.5; font-size: 0.9rem;">← Exit Arcade</a>
+            <h1 class="logo" style="font-size: 2rem; letter-spacing: 6px;">ARCADE</h1>
+        </div>
+
+        <div class="section-title">Web Hubs</div>
+        <div class="games-grid">
+            <div class="game-card" onclick="proxyGame('https://poki.com')">
+                <span class="game-icon">🎯</span>
+                <p>Poki</p>
+            </div>
+            <div class="game-card" onclick="proxyGame('https://crazygames.com')">
+                <span class="game-icon">⚡</span>
+                <p>CrazyGames</p>
+            </div>
+            <div class="game-card" onclick="proxyGame('https://nowgg.lol')">
+                <span class="game-icon">☁️</span>
+                <p>Now.gg</p>
+            </div>
+        </div>
+
+        <div class="section-title">Retro Vault</div>
+        <div class="games-grid">
+            <div class="game-card" onclick="openRetro('gba', 'pokemon_emerald')">
+                <span class="game-icon">🐉</span>
+                <p>Emerald</p>
+            </div>
+            <div class="game-card" onclick="openRetro('nes', 'mario_bros')">
+                <span class="game-icon">🍄</span>
+                <p>Mario Bros</p>
+            </div>
+            <div class="game-card" onclick="openRetro('gba', 'doom')">
+                <span class="game-icon">🔫</span>
+                <p>Doom GBA</p>
+            </div>
+            <div class="game-card" onclick="openRetro('snes', 'zelda_link_past')">
+                <span class="game-icon">🛡️</span>
+                <p>Zelda</p>
+            </div>
+        </div>
+
+        <div class="status-bar" style="margin-top: 3rem;">
+            Aether Arcade Engine v1.0
+        </div>
+    </div>
+
+    <div id="emu-overlay">
+        <div class="emu-controls">
+            <button class="exit-btn" onclick="closeRetro()">Close Game</button>
+        </div>
+        <div id="emu-target" style="width:100%; height:100%;"></div>
+    </div>
+
+    <script>
+        // Use your proxy logic for web sites
+        function proxyGame(url) {
+            window.location.href = window.location.origin + '/proxy/' + url;
+        }
+
+        // Retro Launcher
+        function openRetro(system, game) {
+            const overlay = document.getElementById('emu-overlay');
+            const target = document.getElementById('emu-target');
+            overlay.style.display = 'block';
+
+            // Using EmulatorJS as a reliable web engine
+            target.innerHTML = `<iframe 
+                src="https://emulatorjs.org/emulator.html?system=${system}&game=${game}" 
+                style="width:100%; height:100%; border:none;">
+            </iframe>`;
+        }
+
+        function closeRetro() {
+            document.getElementById('emu-overlay').style.display = 'none';
+            document.getElementById('emu-target').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
