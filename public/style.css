@@ -2,6 +2,7 @@
     --primary: #00d2ff;
     --secondary: #3a7bd5;
     --bg: #050505;
+    --panic: #ff4b2b;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
     overflow: hidden;
 }
 
+/* Background Blobs */
 .blob-1, .blob-2 {
     position: absolute;
     width: 500px;
@@ -25,7 +27,6 @@ body {
     z-index: -1;
     border-radius: 50%;
 }
-
 .blob-1 { top: -10%; left: -10%; animation: float 15s infinite alternate; }
 .blob-2 { bottom: -10%; right: -10%; animation: float 15s infinite alternate-reverse; }
 
@@ -34,21 +35,33 @@ body {
     to { transform: translate(100px, 50px); }
 }
 
+/* Glass Card */
 .glass-card {
-    position: relative; /* Fixed to keep gear icon in place */
+    position: relative;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     border-radius: 32px;
     width: 90%;
-    max-width: 550px;
+    max-width: 500px;
     text-align: center;
     box-shadow: 0 40px 100px rgba(0,0,0,0.8);
 }
 
+.gear-icon {
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    cursor: pointer; 
+    opacity: 0.5; 
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+.gear-icon:hover { opacity: 1; transform: rotate(45deg); }
+
 .logo {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
     letter-spacing: 12px;
     margin: 0;
@@ -57,34 +70,19 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.tagline {
-    opacity: 0.6;
-    margin-top: 10px;
-    font-size: 0.9rem;
-}
+.tagline { opacity: 0.6; margin-top: 10px; font-size: 0.8rem; }
 
-.search-container {
-    margin-top: 3rem;
-    position: relative;
-    display: flex;
-    gap: 10px;
-}
+/* Search & Inputs */
+.search-container { margin-top: 2.5rem; display: flex; gap: 10px; }
 
-input {
+input, select {
     flex: 1;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
-    padding: 1.2rem;
-    border-radius: 16px;
+    padding: 1rem;
+    border-radius: 12px;
     color: white;
-    font-size: 1rem;
     outline: none;
-    transition: 0.3s;
-}
-
-input:focus {
-    border-color: var(--primary);
-    background: rgba(255,255,255,0.08);
 }
 
 button {
@@ -92,28 +90,39 @@ button {
     color: black;
     border: none;
     padding: 0 1.5rem;
-    border-radius: 16px;
+    border-radius: 12px;
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+/* Settings Menu Styles */
+.settings-menu {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: left;
 }
 
-.status-bar {
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    opacity: 0.4;
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
-.dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #00ff88;
-    border-radius: 50%;
-    margin-right: 5px;
+.utility-btn {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    background: rgba(255,255,255,0.1);
+    color: white;
 }
+.utility-btn.panic { background: var(--panic); }
+.utility-btn:hover { background: var(--primary); color: white; }
+
+.info-text { font-size: 0.7rem; opacity: 0.5; text-align: center; margin-top: 10px; }
+.status-bar { margin-top: 2rem; font-size: 0.8rem; opacity: 0.4; }
+.dot { display: inline-block; width: 8px; height: 8px; background: #00ff88; border-radius: 50%; margin-right: 5px; }
