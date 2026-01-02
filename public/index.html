@@ -3,47 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aether | Escape the Ordinary</title>
-    <script src="https://pl28374190.effectivegatecpm.com/fb/52/20/fb5220aa6f237891a41badef0dd08ee5.js"></script>
+    <title>Aether | Arcade & Proxy</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="/uv/uv.bundle.js"></script>
+    <script src="/uv/uv.config.js"></script>
+    <script src="/scram/scramjet.all.js"></script>
 </head>
 <body>
-    <div class="blob-1"></div>
-    <div class="blob-2"></div>
-    
-    <div class="glass-card">
-        <div id="settings-toggle" class="gear-icon">⚙️</div>
-        <h1 class="logo">AETHER</h1>
-        <p class="tagline">123129323694361742612% Human. 0% Restrictions.</p>
+
+    <div class="wrapper">
         
-        <form id="proxy-form">
-            <div class="search-container">
-                <input type="text" id="url-input" placeholder="Enter URL or Search..." autocomplete="off">
-                <button type="submit">Go</button>
+        <nav class="navbar">
+            <div class="logo">AETHER</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/arcade.html">Games</a>
+                <a href="/settings.html">Settings</a>
             </div>
-        </form>
+        </nav>
 
-        <div style="margin-top: 20px;">
-            <a href="/games.html" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: bold;">🎮 Open Game Arcade</a>
-        </div>
-
-        <div id="settings-menu" class="settings-menu">
-            <h3>Stealth Settings</h3>
-            <div class="setting-item">
-                <span>Tab Cloak</span>
-                <select id="cloak-select" onchange="cloakTab(this.value)">
-                    <option value="default">Aether</option>
-                    <option value="drive">Google Drive</option>
-                    <option value="classroom">Classes</option>
-                </select>
+        <main class="container">
+            <div class="glass-card">
+                <h1>Web Proxy</h1>
+                <p>Select an engine and enter a URL to begin.</p>
+                
+                <div class="search-box">
+                    <select id="engine-select" class="engine-dropdown">
+                        <option value="uv">Ultraviolet (Reliable)</option>
+                        <option value="scram">Scramjet (Fast)</option>
+                    </select>
+                    <input type="text" id="url-input" placeholder="Search Google or type a URL...">
+                    <button id="launch-btn" onclick="launch()">Go</button>
+                </div>
             </div>
-            <button id="ab-btn" class="utility-btn">About:Blank Mode</button>
-            <button onclick="localStorage.clear(); location.reload();" class="utility-btn panic">Reset System</button>
-        </div>
 
-        <div class="status-bar"><span class="dot"></span> System Operational</div>
-    </div>
+            <div class="ad-container">
+                </div>
+        </main>
+
+    </div> <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Aether Network</p>
+            </div>
+            <div class="footer-right">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+                <span class="status-dot"></span> <span id="ping-text">System Active</span>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
